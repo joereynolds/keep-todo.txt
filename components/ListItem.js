@@ -1,14 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import {CheckBox} from 'react-native-elements';
 
 
-export default function ListItem() {
+const ListItem = (props) => {
     return (
         <View>
             <CheckBox
-                title="Clean car +todo"
+                title={props.title}
+                // checked={this.state.checked}
             />
         </View>
     )
 }
+
+export default ListItem;

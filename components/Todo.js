@@ -47,7 +47,7 @@ export default class Todo extends Component {
         return (
             <View style={styles.container}>
               {categories.map(category => {
-                  return (<List category={category}/>)
+                  return (<List category={category} key={category} items={this.state.todos.categories[category]}/>)
               })}
             </View>
         );
@@ -62,6 +62,8 @@ export default class Todo extends Component {
 
         todos = todos.split('\n');
         for (const task of todos) {
+            // TODO - Thought we could unpack a variable here instead of doing [0] and [1].
+            // Investigate.
             let todo = task.split('+');
             let item = todo[0].trim();
             let category = todo[1];

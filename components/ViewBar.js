@@ -1,30 +1,27 @@
 import React from 'react';
-import ListItem from './ListItem';
 import { StyleSheet, Text, View } from 'react-native';
 
-const List = props => {
+const ViewBar = props => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>+{props.category}</Text>
-            {
-                props.items.map(item => {
-                    return (<ListItem title={item} />);
-                })
-            }
+            <Text style={styles.title}>Project</Text>
+            <Text style={styles.title}>Context</Text>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        display: "flex",
         backgroundColor: '#ddd',
         padding: 15,
         margin: 10,
     },
     title: {
         fontWeight: 'bold',
+        flex: 1
     }
 });
 
- export default List;
+
+export default ViewBar;
