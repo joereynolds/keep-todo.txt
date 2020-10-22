@@ -10,13 +10,19 @@ export default class Todo extends Component {
             file: props.file,
             todos: {
                 categories: {
-
+                    'complete': [],
                 }
             }
         };
 
-        this.organiseTodos(`
-            OKRs +read
+        this.organiseTodos(`Add ability to delete an item +keeptodo
+            Should be able to click into a list to start editing it +keeptodo
+            flexbasis to 25% +keeptodo
+            Integrate dropbox https://www.dropbox.com/lp/developers/reference/oauth-guide +keeptodo
+            tests +keeptodo
+            An icon for the app +keeptodo
+            lists shouldn't show if they have no items +keeptodo
+            https://www.digitalocean.com/community/tutorials/react-react-native-navigation +keeptodo
             On Writing (Stephen King) +book
             Oragnise bike fix +todo
             Paintballing +fun
@@ -38,8 +44,12 @@ export default class Todo extends Component {
             Subscribe to computer music journal (see if library has a subscription) +todo
             Sunshine +film
             Tab out etude 3 from oboe +todo
-            That film about that magazine +film
-        `);
+            x Strikethrough text if item is done +keeptodo
+            x height shouldn't be same on all lists +keeptodo
+            x Completed items should show up in their categories and a 'completed' category +keeptodo
+            x A test on multiple categories +multiple +categories
+            x Support multiple categories for a todo +keeptodo
+            That film about that magazine +film`);
     }
 
     render() {
@@ -62,17 +72,24 @@ export default class Todo extends Component {
 
         todos = todos.split('\n');
         for (const task of todos) {
-            // TODO - Thought we could unpack a variable here instead of doing [0] and [1].
-            // Investigate.
-            let todo = task.split('+');
-            let item = todo[0].trim();
-            let category = todo[1];
+            let [item, ...categories] = task.split('+');
+            item = item.trim();
 
-            if (typeof this.state.todos.categories[category] === 'undefined') {
-                this.state.todos.categories[category] = []
+            for (const category of categories) {
+                if (typeof this.state.todos.categories[category] === 'undefined') {
+                    this.state.todos.categories[category] = []
+                }
             }
 
-            this.state.todos.categories[category].push(item);
+            let isChecked = false;
+            if (item.startsWith('x ')) {
+                isChecked = true;
+                this.state.todos.categories['complete'].push({content: item, checked: isChecked});
+            }
+
+            for (const category of categories) {
+                this.state.todos.categories[category].push({content: item, checked: isChecked});
+            }
         }
     }
 }

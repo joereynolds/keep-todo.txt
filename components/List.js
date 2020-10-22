@@ -5,10 +5,20 @@ import { StyleSheet, Text, View } from 'react-native';
 const List = props => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>+{props.category}</Text>
+            <Text style={styles.title}>
+                {props.category === 'undefined' ? 'uncategorised' : props.category}
+            </Text>
             {
                 props.items.map(item => {
-                    return (<ListItem title={item} />);
+                    if (item.content) {
+                        return (
+                            <ListItem 
+                                title={item.content} 
+                                key={item.content} 
+                                checked={item.checked} 
+                            />
+                        );
+                    }
                 })
             }
         </View>
@@ -21,6 +31,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ddd',
         padding: 15,
         margin: 10,
+        height: 'fit-content',
     },
     title: {
         fontWeight: 'bold',
