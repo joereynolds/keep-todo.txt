@@ -8,10 +8,6 @@ export default class List extends Component {
         super(props);
     }
 
-    doThing() {
-        alert('thing done');
-    }
-
     render() {
         return (
             <View style={styles.container}>
@@ -37,9 +33,7 @@ export default class List extends Component {
                 </TouchableOpacity>
             </View>
         );
-
     }
-
 }
 
 const styles = StyleSheet.create({

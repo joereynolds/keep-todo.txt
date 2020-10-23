@@ -7,7 +7,6 @@ export default class Todo extends Component {
         super(props);
 
         this.state = {
-            file: props.file,
             todos: {
                 categories: {
                     'complete': [],
@@ -17,7 +16,8 @@ export default class Todo extends Component {
 
         this.organiseTodos(`Add ability to delete an item +keeptodo
             Should be able to click into a list to start editing it +keeptodo
-            Add "screens" directory +keeptodo
+            Completed items should be at the bottom of the list +keeptodo
+            x Add "screens" directory +keeptodo
             flexbasis to 25% +keeptodo
             Integrate dropbox https://www.dropbox.com/lp/developers/reference/oauth-guide +keeptodo
             tests +keeptodo
