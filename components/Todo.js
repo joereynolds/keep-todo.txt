@@ -17,6 +17,7 @@ export default class Todo extends Component {
 
         this.organiseTodos(`Add ability to delete an item +keeptodo
             Should be able to click into a list to start editing it +keeptodo
+            Add "screens" directory +keeptodo
             flexbasis to 25% +keeptodo
             Integrate dropbox https://www.dropbox.com/lp/developers/reference/oauth-guide +keeptodo
             tests +keeptodo
@@ -57,7 +58,15 @@ export default class Todo extends Component {
         return (
             <View style={styles.container}>
               {categories.map(category => {
-                  return (<List category={category} key={category} items={this.state.todos.categories[category]}/>)
+                  return (
+                      <List 
+                          category={category} 
+                          key={category} 
+                          items={this.state.todos.categories[category]}
+                          navigation={this.props.navigation}
+                      
+                      />
+                  )
               })}
             </View>
         );

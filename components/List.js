@@ -1,28 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ListItem from './ListItem';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const List = props => {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>
-                {props.category === 'undefined' ? 'uncategorised' : props.category}
-            </Text>
-            {
-                props.items.map(item => {
-                    if (item.content) {
-                        return (
-                            <ListItem 
-                                title={item.content} 
-                                key={item.content} 
-                                checked={item.checked} 
-                            />
-                        );
-                    }
-                })
-            }
-        </View>
-    );
+export default class List extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    doThing() {
+        alert('thing done');
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Single')}>
+                    <View>
+                        <Text style={styles.title}>
+                            {this.props.category === 'undefined' ? 'uncategorised' : this.props.category}
+                        </Text>
+                        {
+                            this.props.items.map(item => {
+                                if (item.content) {
+                                    return (
+                                        <ListItem 
+                                            title={item.content} 
+                                            key={item.content} 
+                                            checked={item.checked} 
+                                        />
+                                    );
+                                }
+                            })
+                        }
+                    </View>
+                </TouchableOpacity>
+            </View>
+        );
+
+    }
+
 }
 
 const styles = StyleSheet.create({
@@ -37,5 +54,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 });
-
- export default List;
