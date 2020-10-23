@@ -11,10 +11,10 @@ const ListItem = (props) => {
                 checkedIcon="check-square"
                 checkedColor="gray"
                 containerStyle={styles.container}
-                textStyle={props.checked === true ? styles.text : ''}
+                textStyle={props.checked === true ? styles.text.checked : styles.text.unchecked}
             />
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -23,7 +23,12 @@ const styles = StyleSheet.create({
         marginRight: 0,
     },
     text: {
-        textDecorationLine: 'line-through'
+        unchecked: {
+            textDecorationLine: 'initial'
+        },
+        checked: {
+            textDecorationLine: 'line-through'
+        }
     }
 })
 

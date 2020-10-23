@@ -63,11 +63,10 @@ export default class Todo extends Component {
         );
     }
 
-    // For now reads from a file, will need to change this when/if it's integrated
+    // For now reads from a string, will need to change this when/if it's integrated
     // with dropbox
     //
     // This populates the state with our tasks put into their categories
-    // TODO - should this populate props instead of state? Probably not
     organiseTodos(todos) {
 
         todos = todos.split('\n');
@@ -100,5 +99,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     backgroundColor: '#fff',
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });

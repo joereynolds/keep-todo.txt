@@ -22,12 +22,12 @@ const List = props => {
                 })
             }
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: '1',
         backgroundColor: '#ddd',
         padding: 15,
         margin: 10,
