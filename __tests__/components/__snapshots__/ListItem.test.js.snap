@@ -1,3 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ListItem /> renders correctly 1`] = `null`;
+exports[`<ListItem /> renders correctly 1`] = `
+<View>
+  <View
+    accessibilityRole="checkbox"
+    accessibilityState={
+      Object {
+        "checked": false,
+      }
+    }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#fafafa",
+        "borderColor": "#ededed",
+        "borderRadius": 3,
+        "borderWidth": 1,
+        "margin": 5,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "opacity": 1,
+        "padding": 10,
+      }
+    }
+    testID="checkbox"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "#43484d",
+            "fontWeight": "bold",
+            "marginLeft": 10,
+            "marginRight": 10,
+            "textDecorationLine": "none",
+          }
+        }
+        testID="checkboxTitle"
+      >
+        this-is-my-title
+      </Text>
+    </View>
+  </View>
+</View>
+`;

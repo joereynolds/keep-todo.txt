@@ -8,8 +8,8 @@ const ListItem = (props) => {
             <CheckBox
                 title={props.title}
                 checked={props.checked}
-                checkedIcon="check-square"
-                checkedColor="gray"
+                checkedIcon='check-square'
+                checkedColor='gray'
                 containerStyle={styles.container}
                 textStyle={props.checked === true ? styles.textChecked : styles.textUnchecked}
             />
